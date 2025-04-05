@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const imageItems = document.querySelectorAll('.image-item');
     const imagePaths = [
-        'images/image1.svg',
-        'images/image2.svg',
-        'images/image3.svg',
-        'images/image4.svg',
-        'images/image5.svg'
+        'images/image-1.webp',
+        'images/image-2.webp',
+        'images/image-3.webp',
+        'images/image-4.webp',
+        'images/image-5.webp'
     ];
     let isMoving = false;
     let timeout;
@@ -61,15 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
             isMoving = false;
             imageItems.forEach((item, index) => {
                 setTimeout(() => {
-                    const dropDistance = 300 + (index * 100); // Larger drop distance for more dramatic effect
+                    const dropDistance = 200 + (2 * 100); // Larger drop distance for more dramatic effect
                     item.style.transform = `translate(
                         calc(${clientX}px - 50%),
                         calc(${clientY + dropDistance}px - 50%)
                     ) scale(${1 - (index * 0.05)})`;
                     setTimeout(() => {
                         item.classList.remove('active');
-                    }, 300);
-                }, index * 200); // Sequential delay for countdown effect
+                    }, 200);
+                }, index * 100); // Sequential delay for countdown effect
             });
         }, 1000);
     }
